@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Products — Uncle Joe Foods</title>
+  <meta name="description" content="Browse Uncle Joe Foods' range of premium African yam products: Yam Fries, Yam Slices, Fresh Ghana Yam and Pounded Yam." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ════════════════════ HEADER ════════════════════ -->
+  <header class="site-header">
+    <div class="container nav-inner">
+
+      <a href="index.html" class="nav-logo" aria-label="Uncle Joe Foods Home">
+        <img src="images/logo.jpg" alt="Uncle Joe Foods Logo" />
+      </a>
+
+      <nav aria-label="Main navigation">
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products.html" class="active">Products</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="contact.html" class="btn btn-primary">Get a Quote</a></li>
+        </ul>
+      </nav>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+    </div>
+  </header>
+
+
+  <!-- ════════════════════ PAGE HERO ════════════════════ -->
+  <section class="page-hero" aria-label="Products hero">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a>
+        <span class="sep">/</span>
+        <span>Products</span>
+      </nav>
+      <h1>Our Products</h1>
+      <p>Premium African yam products — naturally prepared and ready to cook.</p>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════ PRODUCTS SECTION ════════════════════ -->
+  <section class="section" aria-labelledby="all-products-heading">
+    <div class="container">
+
+      <div id="all-products-heading" style="position:absolute;clip:rect(0,0,0,0);">All Products</div>
+
+      <!-- Filter Tabs -->
+      <div class="filter-tabs" role="group" aria-label="Filter products by category">
+        <button class="filter-tab active" data-filter="all">All Products</button>
+        <button class="filter-tab" data-filter="fries">Yam Fries</button>
+        <button class="filter-tab" data-filter="slices">Yam Slices</button>
+        <button class="filter-tab" data-filter="fresh">Fresh Yam</button>
+        <button class="filter-tab" data-filter="pounded">Pounded Yam</button>
+      </div>
+
+      <!-- Products Grid -->
+      <div class="products-grid" id="productsGrid">
+
+        <!-- ─── Yam Fries 1kg ─── -->
+        <article class="product-card reveal" data-category="fries">
+          <div class="product-card__img">
+            <img src="images/yam-fries-1kg.jpg" alt="African Yam Fries 1kg" loading="lazy" />
+            <span class="product-card__badge">Bestseller</span>
+          </div>
+          <div class="product-card__body">
+            <p class="product-card__category">Yam Fries</p>
+            <h3 class="product-card__name">African Yam Fries — 1kg</h3>
+            <p class="product-card__desc">
+              Crispy golden yam fries cut from premium Ghana yam. Ready to fry or bake straight
+              from frozen. Perfect as a snack, side dish, or party food.
+            </p>
+            <div class="product-card__footer">
+              <span class="product-card__weight">1 kg</span>
+              <a href="contact.html" class="product-card__inquiry">Enquire →</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- ─── Yam Fries 2.5kg ─── -->
+        <article class="product-card reveal" data-category="fries">
+          <div class="product-card__img">
+            <img src="images/yam-fries-2_5kg.jpg" alt="African Yam Fries 2.5kg" loading="lazy" />
+          </div>
+          <div class="product-card__body">
+            <p class="product-card__category">Yam Fries</p>
+            <h3 class="product-card__name">African Yam Fries — 2.5kg</h3>
+            <p class="product-card__desc">
+              Our larger catering pack of African Yam Fries. Ideal for restaurants, events,
+              and families who love to stock up. Same great taste, bigger value.
+            </p>
+            <div class="product-card__footer">
+              <span class="product-card__weight">2.5 kg</span>
+              <a href="contact.html" class="product-card__inquiry">Enquire →</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- ─── Yam Slices 1kg ─── -->
+        <article class="product-card reveal" data-category="slices">
+          <div class="product-card__img">
+            <img src="images/yam-slices-1kg.jpg" alt="African Yam Slices 1kg" loading="lazy" />
+            <span class="product-card__badge">Popular</span>
+          </div>
+          <div class="product-card__body">
+            <p class="product-card__category">Yam Slices</p>
+            <h3 class="product-card__name">African Yam Slices — 1kg</h3>
+            <p class="product-card__desc">
+              Thick-cut slices of premium African yam, pre-cleaned and ready to cook. Boil,
+              fry or roast them to your liking — versatile and delicious.
+            </p>
+            <div class="product-card__footer">
+              <span class="product-card__weight">1 kg</span>
+              <a href="contact.html" class="product-card__inquiry">Enquire →</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- ─── Yam Slices 2.5kg ─── -->
+        <article class="product-card reveal" data-category="slices">
+          <div class="product-card__img">
+            <img src="images/yam-slices-2_5kg.jpg" alt="African Yam Slices 2.5kg" loading="lazy" />
+          </div>
+          <div class="product-card__body">
+            <p class="product-card__category">Yam Slices</p>
+            <h3 class="product-card__name">African Yam Slices — 2.5kg</h3>
+            <p class="product-card__desc">
+              A bulk pack of our premium yam slices — great for families, restaurants, and
+              caterers who need a reliable supply of quality African yam.
+            </p>
+            <div class="product-card__footer">
+              <span class="product-card__weight">2.5 kg</span>
+              <a href="contact.html" class="product-card__inquiry">Enquire →</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- ─── Fresh Ghana Yam ─── -->
+        <article class="product-card reveal" data-category="fresh">
+          <div class="product-card__img">
+            <img src="images/fresh-ghana-yam.jpg" alt="Fresh Ghana Yam" loading="lazy" />
+          </div>
+          <div class="product-card__body">
+            <p class="product-card__category">Fresh Yam</p>
+            <h3 class="product-card__name">Fresh Ghana Yam</h3>
+            <p class="product-card__desc">
+              Whole fresh yam imported directly from Ghana. Rich in nutrients, full of authentic
+              flavour. Ideal for pounding, frying, boiling or any traditional West African dish.
+            </p>
+            <div class="product-card__footer">
+              <span class="product-card__weight">Varies</span>
+              <a href="contact.html" class="product-card__inquiry">Enquire →</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- ─── Pounded Yam ─── -->
+        <article class="product-card reveal" data-category="pounded">
+          <div class="product-card__img">
+            <img src="images/pounded-yam.jpg" alt="Pounded Yam" loading="lazy" />
+          </div>
+          <div class="product-card__body">
+            <p class="product-card__category">Pounded Yam</p>
+            <h3 class="product-card__name">Pounded Yam</h3>
+            <p class="product-card__desc">
+              Smooth, fluffy pounded yam — a West African staple made easy. Prepared
+              traditionally from real yam. Just heat, serve, and enjoy with your favourite
+              soup or stew.
+            </p>
+            <div class="product-card__footer">
+              <span class="product-card__weight">Various sizes</span>
+              <a href="contact.html" class="product-card__inquiry">Enquire →</a>
+            </div>
+          </div>
+        </article>
+
+      </div><!-- /products-grid -->
+
+    </div>
+  </section>
+
+
+  <!-- ════════════════════ COMBO / STYLED SHOT BANNER ════════════════════ -->
+  <section class="section section--light" aria-label="Product showcase">
+    <div class="container">
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:30px; align-items:center;">
+
+        <div class="reveal">
+          <span class="eyebrow">All in One Pack</span>
+          <h2>Try Our Combo Bundle</h2>
+          <p>Can't choose? Get a bundle of African Yam Fries AND Yam Slices in one order. Perfect for trying both products and enjoying variety at every meal.</p>
+          <a href="contact.html" class="btn btn-primary" style="margin-top:1rem;">
+            <i class="fas fa-paper-plane"></i> Enquire About Bundles
+          </a>
+        </div>
+
+        <div class="reveal" style="border-radius:16px; overflow:hidden; box-shadow:0 12px 40px rgba(0,0,0,.14);">
+          <img src="images/yam-combo-styled.jpg" alt="African Yam Fries and Slices combo" loading="lazy" style="width:100%; height:100%; object-fit:cover;" />
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════ CTA ════════════════════ -->
+  <section class="cta-banner" aria-label="Order call to action">
+    <div class="container">
+      <h2>Interested in Our Products?</h2>
+      <p>Contact us to place an order, ask about bulk pricing, or discuss wholesale options.</p>
+      <div class="cta-banner__actions">
+        <a href="contact.html" class="btn btn-accent">
+          <i class="fas fa-paper-plane"></i> Send an Enquiry
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════ FOOTER ════════════════════ -->
+  <footer class="site-footer" aria-label="Site footer">
+    <div class="container">
+      <div class="footer-grid">
+
+        <div class="footer-brand">
+          <img src="images/logo.jpg" alt="Uncle Joe Foods" />
+          <p>Premium African yam products — naturally prepared, authentically West African. Delivered fresh to your door.</p>
+          <div class="social-links" style="margin-top:16px;">
+            <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Products</h4>
+          <ul>
+            <li><a href="products.html">African Yam Fries</a></li>
+            <li><a href="products.html">African Yam Slices</a></li>
+            <li><a href="products.html">Fresh Ghana Yam</a></li>
+            <li><a href="products.html">Pounded Yam</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Get in Touch</h4>
+          <ul>
+            <li><a href="mailto:info@myunclejoefoods.com">info@myunclejoefoods.com</a></li>
+            <li><a href="contact.html">Send an Enquiry</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <span>© <span id="year"></span> Uncle Joe Foods. All rights reserved.</span>
+        <span>Made with ♥ for West African food lovers</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

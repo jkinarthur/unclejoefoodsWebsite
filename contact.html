@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us — Uncle Joe Foods</title>
+  <meta name="description" content="Get in touch with Uncle Joe Foods to place an order, ask about our African yam products, or enquire about wholesale pricing." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+
+  <style>
+    /* ── Success message ── */
+    .form-success {
+      display: none;
+      background: #e8f5e9;
+      border: 1.5px solid var(--clr-primary);
+      border-radius: var(--radius);
+      padding: 16px 20px;
+      color: var(--clr-primary-dk);
+      font-weight: 600;
+      margin-bottom: 20px;
+      align-items: center;
+      gap: 10px;
+    }
+    .form-success.show { display: flex; }
+
+    /* ── FAQ ── */
+    .faq-item {
+      border-bottom: 1px solid var(--clr-border);
+    }
+    .faq-item:first-child { border-top: 1px solid var(--clr-border); }
+    .faq-question {
+      width: 100%;
+      text-align: left;
+      background: none;
+      border: none;
+      padding: 18px 0;
+      font-family: var(--font-body);
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--clr-text);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+    .faq-question i { color: var(--clr-primary); transition: transform .3s; flex-shrink: 0; }
+    .faq-question.open i { transform: rotate(45deg); }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .35s ease, padding .35s ease;
+      font-size: .92rem;
+      color: var(--clr-text-muted);
+      line-height: 1.7;
+    }
+    .faq-answer.open { max-height: 400px; padding-bottom: 18px; }
+
+    .combo-banner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+    }
+    @media(max-width:700px){ .combo-banner { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+  <!-- ════════════════════ HEADER ════════════════════ -->
+  <header class="site-header">
+    <div class="container nav-inner">
+
+      <a href="index.html" class="nav-logo" aria-label="Uncle Joe Foods Home">
+        <img src="images/logo.jpg" alt="Uncle Joe Foods Logo" />
+      </a>
+
+      <nav aria-label="Main navigation">
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="contact.html" class="active">Contact</a></li>
+          <li><a href="contact.html" class="btn btn-primary">Get a Quote</a></li>
+        </ul>
+      </nav>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+    </div>
+  </header>
+
+
+  <!-- ════════════════════ PAGE HERO ════════════════════ -->
+  <section class="page-hero" aria-label="Contact hero">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a>
+        <span class="sep">/</span>
+        <span>Contact</span>
+      </nav>
+      <h1>Get in Touch</h1>
+      <p>We'd love to hear from you. Send us a message and we'll get back to you as soon as possible.</p>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════ CONTACT SECTION ════════════════════ -->
+  <section class="section">
+    <div class="container">
+      <div class="contact-grid">
+
+        <!-- ─── Info Side ─── -->
+        <div class="contact-info reveal">
+          <h3>How Can We Help You?</h3>
+          <p>Whether you're placing an individual order, enquiring about wholesale pricing, or just want to learn more about our products — we're here for you.</p>
+
+          <div class="contact-item">
+            <div class="contact-item__icon"><i class="fas fa-envelope"></i></div>
+            <div>
+              <p class="contact-item__label">Email</p>
+              <p class="contact-item__value"><a href="mailto:info@myunclejoefoods.com" style="color:var(--clr-primary);">info@myunclejoefoods.com</a></p>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-item__icon"><i class="fas fa-map-marker-alt"></i></div>
+            <div>
+              <p class="contact-item__label">Location</p>
+              <p class="contact-item__value">United Kingdom</p>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-item__icon"><i class="fas fa-clock"></i></div>
+            <div>
+              <p class="contact-item__label">Response Time</p>
+              <p class="contact-item__value">We aim to respond within 24 hours on business days.</p>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-item__icon"><i class="fas fa-boxes"></i></div>
+            <div>
+              <p class="contact-item__label">Wholesale &amp; Bulk Orders</p>
+              <p class="contact-item__value">We supply restaurants, supermarkets, and caterers. Please mention your requirements in the form.</p>
+            </div>
+          </div>
+
+          <!-- Social -->
+          <div style="margin-top: 2rem;">
+            <p style="font-weight:600; color:var(--clr-text); margin-bottom:.8rem;">Follow Us</p>
+            <div style="display:flex; gap:10px;">
+              <a href="#" class="social-link" aria-label="Facebook" style="background:var(--clr-bg-light); color:var(--clr-primary);"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" class="social-link" aria-label="Instagram" style="background:var(--clr-bg-light); color:var(--clr-primary);"><i class="fab fa-instagram"></i></a>
+              <a href="#" class="social-link" aria-label="Twitter" style="background:var(--clr-bg-light); color:var(--clr-primary);"><i class="fab fa-x-twitter"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ─── Form Side ─── -->
+        <div class="reveal">
+          <form class="contact-form" id="contactForm" novalidate>
+
+            <div class="form-success" id="formSuccess" role="alert">
+              <i class="fas fa-check-circle"></i>
+              Thank you! Your message has been sent. We'll be in touch shortly.
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="firstName">First Name <span style="color:var(--clr-accent);">*</span></label>
+                <input type="text" id="firstName" name="firstName" placeholder="Joe" required autocomplete="given-name" />
+              </div>
+              <div class="form-group">
+                <label for="lastName">Last Name <span style="color:var(--clr-accent);">*</span></label>
+                <input type="text" id="lastName" name="lastName" placeholder="Smith" required autocomplete="family-name" />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email Address <span style="color:var(--clr-accent);">*</span></label>
+              <input type="email" id="email" name="email" placeholder="you@example.com" required autocomplete="email" />
+            </div>
+
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" name="phone" placeholder="+44 7700 000000" autocomplete="tel" />
+            </div>
+
+            <div class="form-group">
+              <label for="subject">Subject <span style="color:var(--clr-accent);">*</span></label>
+              <select id="subject" name="subject" required>
+                <option value="" disabled selected>Select a topic…</option>
+                <option value="product-enquiry">Product Enquiry</option>
+                <option value="order">Place an Order</option>
+                <option value="wholesale">Wholesale / Bulk Order</option>
+                <option value="delivery">Delivery Information</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="message">Message <span style="color:var(--clr-accent);">*</span></label>
+              <textarea id="message" name="message" placeholder="Tell us what you need — product name, quantity, any special requirements…" required minlength="20"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;">
+              <i class="fas fa-paper-plane"></i> Send Message
+            </button>
+
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════ FAQ ════════════════════ -->
+  <section class="section section--light" aria-labelledby="faq-heading">
+    <div class="container" style="max-width:760px;">
+
+      <div class="section-header">
+        <span class="eyebrow">Frequently Asked Questions</span>
+        <h2 id="faq-heading">Common Questions</h2>
+      </div>
+
+      <div class="faq-list">
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            Where do you source your yams?
+            <i class="fas fa-plus"></i>
+          </button>
+          <div class="faq-answer">
+            Our yams are sourced directly from trusted farmers in Ghana, West Africa. We work
+            closely with our suppliers to ensure every batch meets our high quality standards.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            Do you offer wholesale or bulk ordering?
+            <i class="fas fa-plus"></i>
+          </button>
+          <div class="faq-answer">
+            Yes! We supply restaurants, supermarkets, caterers, and food businesses across the UK.
+            Please use the contact form above and select "Wholesale / Bulk Order" as the subject, or
+            email us directly to discuss your requirements.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            How are the products packaged and delivered?
+            <i class="fas fa-plus"></i>
+          </button>
+          <div class="faq-answer">
+            All our products are frozen and vacuum-packed to preserve freshness and quality during
+            transit. We use insulated packaging and reliable courier services to ensure your order
+            arrives in perfect condition.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            What sizes are available?
+            <i class="fas fa-plus"></i>
+          </button>
+          <div class="faq-answer">
+            Our African Yam Fries and Yam Slices are available in 1kg and 2.5kg packs. Fresh Ghana
+            Yam and Pounded Yam are available in various sizes. Contact us for current availability
+            and pricing.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            How long does delivery take?
+            <i class="fas fa-plus"></i>
+          </button>
+          <div class="faq-answer">
+            Delivery timescales depend on your location and order size. We will confirm delivery
+            details after receiving your enquiry. We aim to dispatch orders as quickly as possible.
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════ CTA ════════════════════ -->
+  <section class="cta-banner" aria-label="Products call to action">
+    <div class="container">
+      <h2>Browse Our Product Range</h2>
+      <p>Explore all of our premium African yam products and find the right one for you.</p>
+      <div class="cta-banner__actions">
+        <a href="products.html" class="btn btn-accent">
+          <i class="fas fa-list"></i> View All Products
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════ FOOTER ════════════════════ -->
+  <footer class="site-footer" aria-label="Site footer">
+    <div class="container">
+      <div class="footer-grid">
+
+        <div class="footer-brand">
+          <img src="images/logo.jpg" alt="Uncle Joe Foods" />
+          <p>Premium African yam products — naturally prepared, authentically West African. Delivered fresh to your door.</p>
+          <div class="social-links" style="margin-top:16px;">
+            <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Products</h4>
+          <ul>
+            <li><a href="products.html">African Yam Fries</a></li>
+            <li><a href="products.html">African Yam Slices</a></li>
+            <li><a href="products.html">Fresh Ghana Yam</a></li>
+            <li><a href="products.html">Pounded Yam</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Get in Touch</h4>
+          <ul>
+            <li><a href="mailto:info@myunclejoefoods.com">info@myunclejoefoods.com</a></li>
+            <li><a href="contact.html">Send an Enquiry</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <span>© <span id="year"></span> Uncle Joe Foods. All rights reserved.</span>
+        <span>Made with ♥ for West African food lovers</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
