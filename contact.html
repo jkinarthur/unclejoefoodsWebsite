@@ -28,39 +28,6 @@
     }
     .form-success.show { display: flex; }
 
-    /* ── FAQ ── */
-    .faq-item {
-      border-bottom: 1px solid var(--clr-border);
-    }
-    .faq-item:first-child { border-top: 1px solid var(--clr-border); }
-    .faq-question {
-      width: 100%;
-      text-align: left;
-      background: none;
-      border: none;
-      padding: 18px 0;
-      font-family: var(--font-body);
-      font-size: 1rem;
-      font-weight: 600;
-      color: var(--clr-text);
-      cursor: pointer;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 12px;
-    }
-    .faq-question i { color: var(--clr-primary); transition: transform .3s; flex-shrink: 0; }
-    .faq-question.open i { transform: rotate(45deg); }
-    .faq-answer {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height .35s ease, padding .35s ease;
-      font-size: .92rem;
-      color: var(--clr-text-muted);
-      line-height: 1.7;
-    }
-    .faq-answer.open { max-height: 400px; padding-bottom: 18px; }
-
     .combo-banner {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -77,12 +44,14 @@
 
       <a href="index.html" class="nav-logo" aria-label="Uncle Joe Foods Home">
         <img src="images/logo.jpg" alt="Uncle Joe Foods Logo" />
+        <span class="nav-logo-text">Uncle Joe Foods<span>Premium African Yam</span></span>
       </a>
 
       <nav aria-label="Main navigation">
         <ul class="nav-links" id="navLinks">
           <li><a href="index.html">Home</a></li>
           <li><a href="products.html">Products</a></li>
+          <li><a href="partner.html">Partner</a></li>
           <li><a href="contact.html" class="active">Contact</a></li>
           <li><a href="contact.html" class="btn btn-primary">Get a Quote</a></li>
         </ul>
@@ -124,15 +93,23 @@
             <div class="contact-item__icon"><i class="fas fa-envelope"></i></div>
             <div>
               <p class="contact-item__label">Email</p>
-              <p class="contact-item__value"><a href="mailto:info@myunclejoefoods.com" style="color:var(--clr-primary);">info@myunclejoefoods.com</a></p>
+              <p class="contact-item__value"><a href="mailto:jjfetrading@gmail.com" style="color:var(--clr-primary);">jjfetrading@gmail.com</a></p>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-item__icon"><i class="fas fa-phone"></i></div>
+            <div>
+              <p class="contact-item__label">Phone</p>
+              <p class="contact-item__value"><a href="tel:+19454076404" style="color:var(--clr-primary);">+1 945 407 6404</a></p>
             </div>
           </div>
 
           <div class="contact-item">
             <div class="contact-item__icon"><i class="fas fa-map-marker-alt"></i></div>
             <div>
-              <p class="contact-item__label">Location</p>
-              <p class="contact-item__value">United Kingdom</p>
+              <p class="contact-item__label">Address</p>
+              <p class="contact-item__value">JJFE TRADING LLC<br/>12222 Merit Drive, No 130<br/>Dallas, Texas 75251, USA</p>
             </div>
           </div>
 
@@ -222,80 +199,6 @@
   </section>
 
 
-  <!-- ════════════════════ FAQ ════════════════════ -->
-  <section class="section section--light" aria-labelledby="faq-heading">
-    <div class="container" style="max-width:760px;">
-
-      <div class="section-header">
-        <span class="eyebrow">Frequently Asked Questions</span>
-        <h2 id="faq-heading">Common Questions</h2>
-      </div>
-
-      <div class="faq-list">
-
-        <div class="faq-item">
-          <button class="faq-question" aria-expanded="false">
-            Where do you source your yams?
-            <i class="fas fa-plus"></i>
-          </button>
-          <div class="faq-answer">
-            Our yams are sourced directly from trusted farmers in Ghana, West Africa. We work
-            closely with our suppliers to ensure every batch meets our high quality standards.
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question" aria-expanded="false">
-            Do you offer wholesale or bulk ordering?
-            <i class="fas fa-plus"></i>
-          </button>
-          <div class="faq-answer">
-            Yes! We supply restaurants, supermarkets, caterers, and food businesses across the UK.
-            Please use the contact form above and select "Wholesale / Bulk Order" as the subject, or
-            email us directly to discuss your requirements.
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question" aria-expanded="false">
-            How are the products packaged and delivered?
-            <i class="fas fa-plus"></i>
-          </button>
-          <div class="faq-answer">
-            All our products are frozen and vacuum-packed to preserve freshness and quality during
-            transit. We use insulated packaging and reliable courier services to ensure your order
-            arrives in perfect condition.
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question" aria-expanded="false">
-            What sizes are available?
-            <i class="fas fa-plus"></i>
-          </button>
-          <div class="faq-answer">
-            Our African Yam Fries and Yam Slices are available in 1kg and 2.5kg packs. Fresh Ghana
-            Yam and Pounded Yam are available in various sizes. Contact us for current availability
-            and pricing.
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question" aria-expanded="false">
-            How long does delivery take?
-            <i class="fas fa-plus"></i>
-          </button>
-          <div class="faq-answer">
-            Delivery timescales depend on your location and order size. We will confirm delivery
-            details after receiving your enquiry. We aim to dispatch orders as quickly as possible.
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-
   <!-- ════════════════════ CTA ════════════════════ -->
   <section class="cta-banner" aria-label="Products call to action">
     <div class="container">
@@ -347,7 +250,7 @@
         <div class="footer-col">
           <h4>Get in Touch</h4>
           <ul>
-            <li><a href="mailto:info@myunclejoefoods.com">info@myunclejoefoods.com</a></li>
+            <li><a href="mailto:jjfetrading@gmail.com">jjfetrading@gmail.com</a></li>
             <li><a href="contact.html">Send an Enquiry</a></li>
           </ul>
         </div>
@@ -355,7 +258,7 @@
       </div>
 
       <div class="footer-bottom">
-        <span>© <span id="year"></span> Uncle Joe Foods. All rights reserved.</span>
+        <span>© <span id="year"></span> Uncle Joe Foods / JJFE Trading LLC. All rights reserved.</span>
         <span>Made with ♥ for West African food lovers</span>
       </div>
     </div>

@@ -140,44 +140,120 @@ faqQuestions.forEach(btn => {
 });
 
 
-/* ── Contact form (client-side demo submission) ───────────── */
-const contactForm  = document.getElementById('contactForm');
-const formSuccess  = document.getElementById('formSuccess');
+/* ── Contact form → mailto submission ─────────────────────── */
+const CONTACT_EMAIL = 'jjfetrading@gmail.com';
+
+function buildMailtoLink(to, subjectText, fields) {
+  const body = fields
+    .map(f => `${f.label}: ${f.value}`)
+    .join('\n');
+  return `mailto:${to}?subject=${encodeURIComponent(subjectText)}&body=${encodeURIComponent(body)}`;
+}
+
+function validateForm(form) {
+  let valid = true;
+  form.querySelectorAll('[required]').forEach(field => {
+    if (!field.value.trim()) {
+      valid = false;
+      field.style.borderColor = '#e53935';
+    } else {
+      field.style.borderColor = '';
+    }
+  });
+  const emailField = form.querySelector('[type="email"]');
+  if (emailField && emailField.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailField.value)) {
+    valid = false;
+    emailField.style.borderColor = '#e53935';
+  }
+  return valid;
+}
+
+/* General contact form */
+const contactForm = document.getElementById('contactForm');
+const formSuccess = document.getElementById('formSuccess');
 
 if (contactForm) {
+  contactForm.querySelectorAll('input, select, textarea').forEach(field => {
+    field.addEventListener('input', () => { field.style.borderColor = ''; });
+  });
+
   contactForm.addEventListener('submit', e => {
     e.preventDefault();
+    if (!validateForm(contactForm)) return;
 
-    // Basic validation — check required fields
-    let valid = true;
-    contactForm.querySelectorAll('[required]').forEach(field => {
-      if (!field.value.trim()) {
-        valid = false;
-        field.style.borderColor = '#e53935';
-      } else {
-        field.style.borderColor = '';
-      }
-    });
+    const firstName = contactForm.firstName?.value.trim() || '';
+    const lastName  = contactForm.lastName?.value.trim() || '';
+    const emailVal  = contactForm.email?.value.trim() || '';
+    const phoneVal  = contactForm.phone?.value.trim() || '';
+    const subjectVal = contactForm.subject?.value || '';
+    const messageVal = contactForm.message?.value.trim() || '';
 
-    // Email format check
-    const emailField = contactForm.querySelector('#email');
-    if (emailField && emailField.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailField.value)) {
-      valid = false;
-      emailField.style.borderColor = '#e53935';
-    }
+    const mailto = buildMailtoLink(
+      CONTACT_EMAIL,
+      `Website Enquiry: ${subjectVal}`,
+      [
+        { label: 'Name',    value: `${firstName} ${lastName}` },
+        { label: 'Email',   value: emailVal },
+        { label: 'Phone',   value: phoneVal || 'Not provided' },
+        { label: 'Subject', value: subjectVal },
+        { label: 'Message', value: messageVal }
+      ]
+    );
 
-    if (!valid) return;
+    window.location.href = mailto;
 
-    // Show success message (replace with real backend / mailto / Formspree etc.)
     if (formSuccess) {
       formSuccess.classList.add('show');
       formSuccess.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     }
     contactForm.reset();
   });
+}
 
-  // Clear red border on input
-  contactForm.querySelectorAll('input, select, textarea').forEach(field => {
+/* Partner application form */
+const partnerForm    = document.getElementById('partnerForm');
+const partnerSuccess = document.getElementById('partnerSuccess');
+
+if (partnerForm) {
+  partnerForm.querySelectorAll('input, select, textarea').forEach(field => {
     field.addEventListener('input', () => { field.style.borderColor = ''; });
+  });
+
+  partnerForm.addEventListener('submit', e => {
+    e.preventDefault();
+    if (!validateForm(partnerForm)) return;
+
+    const firstName    = partnerForm.firstName?.value.trim() || '';
+    const lastName     = partnerForm.lastName?.value.trim() || '';
+    const businessName = partnerForm.businessName?.value.trim() || '';
+    const emailVal     = partnerForm.email?.value.trim() || '';
+    const phoneVal     = partnerForm.phone?.value.trim() || '';
+    const location     = partnerForm.location?.value.trim() || '';
+    const partnerType  = partnerForm.partnerType?.value || '';
+    const businessType = partnerForm.businessType?.value.trim() || '';
+    const messageVal   = partnerForm.message?.value.trim() || '';
+
+    const mailto = buildMailtoLink(
+      CONTACT_EMAIL,
+      `Partner Application: ${businessName}`,
+      [
+        { label: 'Applicant',       value: `${firstName} ${lastName}` },
+        { label: 'Business Name',   value: businessName },
+        { label: 'Email',           value: emailVal },
+        { label: 'Phone',           value: phoneVal },
+        { label: 'Location',        value: location },
+        { label: 'Partnership Type',value: partnerType },
+        { label: 'Business Type',   value: businessType || 'Not specified' },
+        { label: 'Message',         value: messageVal }
+      ]
+    );
+
+    window.location.href = mailto;
+
+    if (partnerSuccess) {
+      partnerSuccess.classList.add('show');
+      partnerSuccess.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+    partnerForm.reset();
   });
 }

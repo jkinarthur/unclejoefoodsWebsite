@@ -615,6 +615,144 @@ p:last-child { margin-bottom: 0; }
   gap: 8px;
 }
 
+/* ── Nav logo text label ─────────────────────────────────── */
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+.nav-logo-text {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--clr-primary-dk);
+  line-height: 1.15;
+  white-space: nowrap;
+}
+.nav-logo-text span {
+  display: block;
+  font-size: .7rem;
+  font-weight: 500;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--clr-text-muted);
+  font-family: var(--font-body);
+}
+
+/* ── Benefits / Offerings Grid ───────────────────────────── */
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 24px;
+}
+.benefit-card {
+  border-radius: var(--radius-lg);
+  padding: 28px 24px;
+  background: #fff;
+  border-left: 4px solid var(--clr-primary);
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--transition), transform var(--transition);
+}
+.benefit-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-3px);
+}
+.benefit-card__icon { font-size: 1.7rem; margin-bottom: 12px; }
+.benefit-card h3 { font-size: 1rem; margin-bottom: .5rem; color: var(--clr-primary-dk); }
+.benefit-card p  { font-size: .88rem; margin-bottom: 0; }
+
+/* ── Review cards ────────────────────────────────────────── */
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+}
+.review-card {
+  background: #fff;
+  border-radius: var(--radius-lg);
+  padding: 26px 24px;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--clr-border);
+  transition: box-shadow var(--transition), transform var(--transition);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.review-card:hover { box-shadow: var(--shadow-md); transform: translateY(-3px); }
+.review-card__header { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; }
+.review-card__product { font-size: .78rem; font-weight: 700; text-transform: uppercase; letter-spacing: .07em; color: var(--clr-primary); background: var(--clr-bg-light); padding: .2rem .7rem; border-radius: 50px; }
+.review-card__stars { color: #f9a825; font-size: .95rem; white-space: nowrap; }
+.review-card__text { font-size: .92rem; color: var(--clr-text-muted); font-style: italic; line-height: 1.65; }
+.review-card__author { display: flex; align-items: center; gap: 10px; margin-top: auto; }
+.review-card__avatar { width: 38px; height: 38px; border-radius: 50%; background: var(--clr-bg-light); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: .85rem; color: var(--clr-primary-dk); flex-shrink: 0; }
+.review-card__name { font-weight: 700; font-size: .88rem; color: var(--clr-text); }
+.review-card__verified { font-size: .75rem; color: var(--clr-primary); }
+
+/* ── Partner page ────────────────────────────────────────── */
+.partner-types-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 24px;
+}
+.partner-type-card {
+  background: #fff;
+  border-radius: var(--radius-lg);
+  padding: 32px 28px;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--clr-border);
+  text-align: center;
+  transition: box-shadow var(--transition), transform var(--transition);
+}
+.partner-type-card:hover { box-shadow: var(--shadow-md); transform: translateY(-3px); }
+.partner-type-card__icon { font-size: 2.5rem; margin-bottom: 14px; }
+.partner-type-card h3 { margin-bottom: .6rem; }
+.partner-type-card p  { font-size: .9rem; }
+.partner-type-card .btn { margin-top: 1.2rem; }
+
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  position: relative;
+}
+.steps-grid::before {
+  content: '';
+  position: absolute;
+  top: 28px;
+  left: calc(16.66% + 20px);
+  right: calc(16.66% + 20px);
+  height: 2px;
+  background: var(--clr-border);
+  z-index: 0;
+}
+.step-card {
+  text-align: center;
+  padding: 0 20px;
+  position: relative;
+  z-index: 1;
+}
+.step-card__number {
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  background: var(--clr-primary);
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+  box-shadow: 0 4px 14px rgba(46,125,50,.35);
+}
+.step-card h3 { font-size: 1.05rem; margin-bottom: .5rem; }
+.step-card p  { font-size: .88rem; }
+
+@media (max-width: 640px) {
+  .steps-grid { grid-template-columns: 1fr; gap: 24px; }
+  .steps-grid::before { display: none; }
+}
+
 /* ── Scroll-reveal fade ──────────────────────────────────── */
 .reveal {
   opacity: 0;
