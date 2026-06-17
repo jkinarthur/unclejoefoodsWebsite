@@ -598,10 +598,10 @@ p:last-child { margin-bottom: 0; }
 }
 
 /* Color variants */
-.feature-card--green  .feature-card__top { background: var(--clr-forest-lt); }
-.feature-card--terra  .feature-card__top { background: var(--clr-terracotta); }
-.feature-card--gold   .feature-card__top { background: #C9962F; }
-.feature-card--forest .feature-card__top { background: var(--clr-forest); }
+.feature-card--green  .feature-card__top { background: var(--clr-primary); }
+.feature-card--terra  .feature-card__top { background: var(--clr-primary); }
+.feature-card--gold   .feature-card__top { background: var(--clr-primary); }
+.feature-card--forest .feature-card__top { background: var(--clr-primary); }
 
 @media (max-width: 900px) {
   .features-grid {

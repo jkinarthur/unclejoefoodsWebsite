@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gallery | Uncle Joe Foods</title>
+  <meta name="description" content="Photo gallery showcasing Uncle Joe Foods' premium African yam products, farm origins, and packaging." />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/webp" href="images/logo-nav.webp" />
+  <link rel="alternate icon" type="image/jpeg" href="images/logo-nav.jpg" />
+  <link rel="apple-touch-icon" href="images/logo.jpg" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Gallery | Uncle Joe Foods" />
+  <meta property="og:description" content="See our premium African yam products in action." />
+  <meta property="og:image" content="images/banner-hero.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="theme-color" content="#2e7d32" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/style.css?v=2" />
+
+  <style>
+    /* ── Gallery page styles ───────────────────────────── */
+    .gallery-hero {
+      background: var(--clr-primary-dk);
+      color: #fff;
+      text-align: center;
+      padding: 80px 1rem 60px;
+    }
+    .gallery-hero h1 {
+      font-family: var(--font-heading);
+      font-size: clamp(2rem, 5vw, 3rem);
+      margin-bottom: .5rem;
+    }
+    .gallery-hero p {
+      font-size: 1.1rem;
+      opacity: .85;
+      max-width: 540px;
+      margin: 0 auto;
+    }
+
+    .gallery-section {
+      padding: 64px 1rem 80px;
+      background: #f8f7f4;
+    }
+    .gallery-section .container { max-width: 1200px; margin: 0 auto; }
+
+    /* Category headings */
+    .gallery-group { margin-bottom: 56px; }
+    .gallery-group__label {
+      font-family: var(--font-heading);
+      font-size: 1.35rem;
+      color: var(--clr-primary-dk);
+      margin-bottom: 20px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--clr-primary);
+      display: inline-block;
+    }
+
+    /* Masonry-style grid */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 14px;
+    }
+    .gallery-grid--wide {
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    }
+
+    .gallery-item {
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0,0,0,.10);
+      background: #fff;
+      transition: transform .22s ease, box-shadow .22s ease;
+      cursor: pointer;
+      aspect-ratio: 1 / 1;
+    }
+    .gallery-item:hover {
+      transform: translateY(-4px) scale(1.01);
+      box-shadow: 0 8px 28px rgba(0,0,0,.16);
+    }
+    .gallery-item picture,
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .gallery-item--banner {
+      aspect-ratio: 16 / 9;
+    }
+
+    /* Caption on hover */
+    .gallery-item { position: relative; }
+    .gallery-item__cap {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      background: linear-gradient(transparent, rgba(0,0,0,.6));
+      color: #fff;
+      font-size: .85rem;
+      font-weight: 500;
+      padding: 28px 12px 10px;
+      opacity: 0;
+      transition: opacity .22s ease;
+      pointer-events: none;
+    }
+    .gallery-item:hover .gallery-item__cap,
+    .gallery-item:focus-within .gallery-item__cap { opacity: 1; }
+
+    /* Lightbox overlay */
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,.88);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+    }
+    .lightbox.is-open { display: flex; }
+    .lightbox__img {
+      max-width: 90vw;
+      max-height: 88vh;
+      border-radius: 8px;
+      object-fit: contain;
+      box-shadow: 0 4px 40px rgba(0,0,0,.5);
+    }
+    .lightbox__close {
+      position: fixed;
+      top: 20px; right: 24px;
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 2.2rem;
+      line-height: 1;
+      cursor: pointer;
+      opacity: .8;
+      transition: opacity .15s;
+    }
+    .lightbox__close:hover { opacity: 1; }
+    .lightbox__cap {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #fff;
+      font-size: .9rem;
+      opacity: .8;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ════════════════════ HEADER ════════════════════ -->
+  <header class="site-header">
+    <div class="container nav-inner">
+
+      <a href="index.html" class="nav-logo" aria-label="Uncle Joe Foods Home">
+        <picture>
+          <source srcset="images/logo-nav.webp" type="image/webp" />
+          <img src="images/logo-nav.jpg" alt="Uncle Joe Foods Logo" width="80" height="96" decoding="async" />
+        </picture>
+        <span class="nav-logo-text">Uncle Joe Foods</span>
+      </a>
+
+      <nav aria-label="Main navigation">
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="partner.html">Partner</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="gallery.html" class="btn btn-primary active">Gallery</a></li>
+        </ul>
+      </nav>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+    </div>
+  </header>
+
+  <!-- ════════════════════ HERO ════════════════════ -->
+  <section class="gallery-hero">
+    <h1>Our Gallery</h1>
+    <p>A look at our products, packaging, and the farm-fresh origins behind every order.</p>
+  </section>
+
+  <!-- ════════════════════ GALLERY ════════════════════ -->
+  <section class="gallery-section">
+    <div class="container">
+
+      <!-- Products -->
+      <div class="gallery-group">
+        <span class="gallery-group__label">Products</span>
+        <div class="gallery-grid">
+
+          <div class="gallery-item" tabindex="0" data-src="images/yam-fries-1kg.jpg" data-cap="African Yam Fries (1kg)">
+            <picture>
+              <source srcset="images/yam-fries-1kg.webp" type="image/webp" />
+              <img src="images/yam-fries-1kg.jpg" alt="African Yam Fries 1kg" loading="lazy" decoding="async" />
+            </picture>
+            <span class="gallery-item__cap">African Yam Fries (1kg)</span>
+          </div>
+
+          <div class="gallery-item" tabindex="0" data-src="images/yam-fries-2_5kg.jpg" data-cap="African Yam Fries (2.5kg)">
+            <picture>
+              <source srcset="images/yam-fries-2_5kg.webp" type="image/webp" />
+              <img src="images/yam-fries-2_5kg.jpg" alt="African Yam Fries 2.5kg" loading="lazy" decoding="async" />
+            </picture>
+            <span class="gallery-item__cap">African Yam Fries (2.5kg)</span>
+          </div>
+
+          <div class="gallery-item" tabindex="0" data-src="images/yam-slices-1kg.jpg" data-cap="African Yam Slices (1kg)">
+            <picture>
+              <source srcset="images/yam-slices-1kg.webp" type="image/webp" />
+              <img src="images/yam-slices-1kg.jpg" alt="African Yam Slices 1kg" loading="lazy" decoding="async" />
+            </picture>
+            <span class="gallery-item__cap">African Yam Slices (1kg)</span>
+          </div>
+
+          <div class="gallery-item" tabindex="0" data-src="images/yam-slices-2_5kg.jpg" data-cap="African Yam Slices (2.5kg)">
+            <picture>
+              <source srcset="images/yam-slices-2_5kg.webp" type="image/webp" />
+              <img src="images/yam-slices-2_5kg.jpg" alt="African Yam Slices 2.5kg" loading="lazy" decoding="async" />
+            </picture>
+            <span class="gallery-item__cap">African Yam Slices (2.5kg)</span>
+          </div>
+
+          <div class="gallery-item" tabindex="0" data-src="images/fresh-ghana-yam.jpg" data-cap="Fresh Ghana Yam">
+            <picture>
+              <source srcset="images/fresh-ghana-yam.webp" type="image/webp" />
+              <img src="images/fresh-ghana-yam.jpg" alt="Fresh Ghana Yam" loading="lazy" decoding="async" />
+            </picture>
+            <span class="gallery-item__cap">Fresh Ghana Yam</span>
+          </div>
+
+          <div class="gallery-item" tabindex="0" data-src="images/pounded-yam.jpg" data-cap="Pounded Yam">
+            <picture>
+              <source srcset="images/pounded-yam.webp" type="image/webp" />
+              <img src="images/pounded-yam.jpg" alt="Pounded Yam" loading="lazy" decoding="async" />
+            </picture>
+            <span class="gallery-item__cap">Pounded Yam</span>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Styled Shots -->
+      <div class="gallery-group">
+        <span class="gallery-group__label">Styled Shots</span>
+        <div class="gallery-grid">
+
+          <div class="gallery-item" tabindex="0" data-src="images/yam-fries-styled.jpg" data-cap="Yam Fries - Styled">
+            <picture>
+              <source srcset="images/yam-fries-styled.webp" type="image/webp" />
+              <img src="images/yam-fries-styled.jpg" alt="Yam Fries styled shot" loading="lazy" decoding="async" />
+            </picture>
+            <span class="gallery-item__cap">Yam Fries - Styled</span>
+          </div>
+
+          <div class="gallery-item" tabindex="0" data-src="images/yam-slices-styled.jpg" data-cap="Yam Slices - Styled">
+            <picture>
+              <source srcset="images/yam-slices-styled.webp" type="image/webp" />
+              <img src="images/yam-slices-styled.jpg" alt="Yam Slices styled shot" loading="lazy" decoding="async" />
+            </picture>
+            <span class="gallery-item__cap">Yam Slices - Styled</span>
+          </div>
+
+          <div class="gallery-item" tabindex="0" data-src="images/yam-combo-styled.jpg" data-cap="Yam Combo Pack - Styled">
+            <picture>
+              <source srcset="images/yam-combo-styled.webp" type="image/webp" />
+              <img src="images/yam-combo-styled.jpg" alt="Yam Combo styled shot" loading="lazy" decoding="async" />
+            </picture>
+            <span class="gallery-item__cap">Yam Combo Pack - Styled</span>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Farm & Origin -->
+      <div class="gallery-group">
+        <span class="gallery-group__label">Farm &amp; Origin</span>
+        <div class="gallery-grid gallery-grid--wide">
+
+          <div class="gallery-item gallery-item--banner" tabindex="0" data-src="images/farm-photo-1.jpg" data-cap="Farm in Ghana">
+            <picture>
+              <source srcset="images/farm-photo-1.webp" type="image/webp" />
+              <img src="images/farm-photo-1.jpg" alt="Yam farm in Ghana" loading="lazy" decoding="async" />
+            </picture>
+            <span class="gallery-item__cap">Farm in Ghana</span>
+          </div>
+
+          <div class="gallery-item gallery-item--banner" tabindex="0" data-src="images/farm-photo-2.jpg" data-cap="Harvest season">
+            <picture>
+              <source srcset="images/farm-photo-2.webp" type="image/webp" />
+              <img src="images/farm-photo-2.jpg" alt="Yam harvest" loading="lazy" decoding="async" />
+            </picture>
+            <span class="gallery-item__cap">Harvest season</span>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Banners -->
+      <div class="gallery-group">
+        <span class="gallery-group__label">Banners</span>
+        <div class="gallery-grid gallery-grid--wide">
+
+          <div class="gallery-item gallery-item--banner" tabindex="0" data-src="images/banner-hero.jpg" data-cap="Hero Banner">
+            <picture>
+              <source srcset="images/banner-hero.webp" type="image/webp" />
+              <img src="images/banner-hero.jpg" alt="Uncle Joe Foods hero banner" loading="lazy" decoding="async" />
+            </picture>
+            <span class="gallery-item__cap">Hero Banner</span>
+          </div>
+
+          <div class="gallery-item gallery-item--banner" tabindex="0" data-src="images/banner-hero-2.jpg" data-cap="Banner 2">
+            <picture>
+              <source srcset="images/banner-hero-2.webp" type="image/webp" />
+              <img src="images/banner-hero-2.jpg" alt="Uncle Joe Foods banner 2" loading="lazy" decoding="async" />
+            </picture>
+            <span class="gallery-item__cap">Banner 2</span>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ════════════════════ LIGHTBOX ════════════════════ -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+    <button class="lightbox__close" id="lightboxClose" aria-label="Close image viewer">&times;</button>
+    <img class="lightbox__img" id="lightboxImg" src="" alt="" />
+    <p class="lightbox__cap" id="lightboxCap"></p>
+  </div>
+
+  <!-- ════════════════════ FOOTER ════════════════════ -->
+  <footer class="site-footer" aria-label="Site footer">
+    <!-- CTA strip -->
+    <div class="footer-cta">
+      <div class="container footer-cta__inner">
+        <div>
+          <p class="footer-cta__eyebrow">Get in touch</p>
+          <h2 class="footer-cta__title">Bring authentic Ghanaian yam to your table</h2>
+        </div>
+        <a href="contact.html" class="btn btn-accent">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg> Contact Us
+        </a>
+      </div>
+    </div>
+
+    <div class="container footer-grid">
+      <div class="footer-col footer-col--brand">
+        <a href="index.html" class="footer-logo" aria-label="Uncle Joe Foods">
+          <picture>
+            <source srcset="images/logo-nav.webp" type="image/webp" />
+            <img src="images/logo-nav.jpg" alt="Uncle Joe Foods Logo" width="48" height="58" decoding="async" />
+          </picture>
+        </a>
+        <p>Premium African yam products, naturally prepared and authentically delivered.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Facebook"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg></a>
+          <a href="#" aria-label="X / Twitter"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.258 5.63 5.906-5.63Zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h3>Products</h3>
+        <ul>
+          <li><a href="products.html">African Yam Fries</a></li>
+          <li><a href="products.html">African Yam Slices</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3>Company</h3>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="partner.html">Become a Partner</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3>Contact</h3>
+        <address class="footer-address">
+          <p>JJFE Trading LLC<br>12222 Merit Drive, No 130<br>Dallas, Texas 75251, USA</p>
+          <p><a href="mailto:jjfetrading@gmail.com">jjfetrading@gmail.com</a></p>
+          <p><a href="tel:+19454076404">+1 945 407 6404</a></p>
+        </address>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+        <p>&copy; <span id="yr"></span> Uncle Joe Foods / JJFE Trading LLC. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+  <script>
+    // ── Lightbox ───────────────────────────────────────
+    const lb     = document.getElementById('lightbox');
+    const lbImg  = document.getElementById('lightboxImg');
+    const lbCap  = document.getElementById('lightboxCap');
+    const lbClose= document.getElementById('lightboxClose');
+
+    document.querySelectorAll('.gallery-item').forEach(item => {
+      item.addEventListener('click', open);
+      item.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open.call(item); } });
+    });
+
+    function open() {
+      lbImg.src = this.dataset.src;
+      lbImg.alt = this.dataset.cap || '';
+      lbCap.textContent = this.dataset.cap || '';
+      lb.classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+      lbClose.focus();
+    }
+
+    lbClose.addEventListener('click', close);
+    lb.addEventListener('click', e => { if (e.target === lb) close(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
+
+    function close() {
+      lb.classList.remove('is-open');
+      document.body.style.overflow = '';
+    }
+
+    document.getElementById('yr').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
