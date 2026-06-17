@@ -28,25 +28,6 @@
 
   <style>
     /* ── Gallery page styles ───────────────────────────── */
-    .gallery-hero {
-      background: var(--clr-primary-dk);
-      color: #fff;
-      text-align: center;
-      padding: 80px 1rem 60px;
-    }
-    .gallery-hero h1 {
-      font-family: var(--font-heading);
-      font-size: clamp(2rem, 5vw, 3rem);
-      margin-bottom: .5rem;
-    }
-    .gallery-hero p {
-      font-size: 1.1rem;
-      opacity: .85;
-      max-width: 540px;
-      margin: 0 auto;
-    }
-
-    .gallery-section {
       padding: 64px 1rem 80px;
       background: #f8f7f4;
     }
@@ -191,9 +172,16 @@
   </header>
 
   <!-- ════════════════════ HERO ════════════════════ -->
-  <section class="gallery-hero">
-    <h1>Our Gallery</h1>
-    <p>A look at our products, packaging, and the farm-fresh origins behind every order.</p>
+  <section class="page-hero" aria-label="Gallery hero">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a>
+        <span class="sep">/</span>
+        <span>Gallery</span>
+      </nav>
+      <h1>Our Gallery</h1>
+      <p>A look at our products, packaging, and the farm-fresh origins behind every order.</p>
+    </div>
   </section>
 
   <!-- ════════════════════ GALLERY ════════════════════ -->
