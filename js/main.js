@@ -4,33 +4,8 @@
 
 'use strict';
 
-/* ── Hero parallax + Magnetic CTA ─────────────────────────── */
+/* ── Magnetic CTA ─────────────────────────────────────────── */
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-/* Subtle scroll-driven scale on the hero visual */
-const heroVisual = document.getElementById('heroVisual');
-const heroStack  = heroVisual?.classList.contains('hero-bg-stack')
-  ? heroVisual
-  : heroVisual?.querySelector('.hero-bg-stack');
-let heroTicking  = false;
-
-function updateHeroParallax() {
-  if (!heroStack) return;
-  const scrolled = window.scrollY;
-  const max = window.innerHeight;
-  const progress = Math.min(scrolled / max, 1);
-  heroStack.style.transform =
-    `scale(${1 + progress * 0.08}) translateY(${progress * 40}px)`;
-  heroTicking = false;
-}
-if (heroStack && !reduceMotion) {
-  window.addEventListener('scroll', () => {
-    if (!heroTicking) {
-      requestAnimationFrame(updateHeroParallax);
-      heroTicking = true;
-    }
-  }, { passive: true });
-}
 
 /* Magnetic buttons (skipped on touch / reduced motion) */
 const isTouch = window.matchMedia('(hover: none)').matches;
@@ -82,65 +57,6 @@ if (toggle && navLinks) {
       toggle.setAttribute('aria-expanded', 'false');
     }
   });
-}
-
-
-/* ── Hero background slider (crossfade) ───────────────────── */
-const heroLayers = document.querySelectorAll('.hero-bg');
-const heroSlides = [
-  { webp: 'images/banner-hero.webp',   jpg: 'images/banner-hero.jpg' },
-  { webp: 'images/banner-hero-2.webp', jpg: 'images/banner-hero-2.jpg' }
-];
-const dotBtns = document.querySelectorAll('.hero-dots button');
-let currentSlide = 0;
-let activeLayer = 0;     // index into heroLayers (0 = A, 1 = B)
-let slideTimer;
-
-function slideBackground(slide) {
-  // Fallback for browsers without image-set
-  const fallback = `url('${slide.jpg}')`;
-  const modern   = `image-set(url('${slide.webp}') type('image/webp'), url('${slide.jpg}') type('image/jpeg'))`;
-  return { fallback, modern };
-}
-
-function goToSlide(index) {
-  if (heroLayers.length < 2) return;
-  if (index === currentSlide) return;
-
-  const nextLayer = 1 - activeLayer;
-  const bg = slideBackground(heroSlides[index]);
-  heroLayers[nextLayer].style.backgroundImage = bg.fallback;
-  heroLayers[nextLayer].style.backgroundImage = bg.modern;
-
-  // Force reflow so the browser picks up the new background before opacity changes
-  // eslint-disable-next-line no-unused-expressions
-  heroLayers[nextLayer].offsetHeight;
-
-  heroLayers[nextLayer].classList.add('is-active');
-  heroLayers[activeLayer].classList.remove('is-active');
-
-  activeLayer = nextLayer;
-  currentSlide = index;
-  dotBtns.forEach((btn, i) => btn.classList.toggle('active', i === currentSlide));
-}
-
-function nextSlide() {
-  goToSlide((currentSlide + 1) % heroSlides.length);
-}
-
-if (heroLayers.length >= 2 && heroSlides.length > 1) {
-  // Preload the second slide so the first crossfade is smooth
-  const preload = new Image();
-  preload.src = heroSlides[1].webp;
-
-  dotBtns.forEach((btn, i) => {
-    btn.addEventListener('click', () => {
-      clearInterval(slideTimer);
-      goToSlide(i);
-      slideTimer = setInterval(nextSlide, 5000);
-    });
-  });
-  slideTimer = setInterval(nextSlide, 5000);
 }
 
 

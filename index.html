@@ -64,43 +64,41 @@
   </header>
 
 
-  <!-- ════════════════════ HERO (full-bleed editorial) ════════════════════ -->
+  <!-- ════════════════════ HERO (split layout) ════════════════════ -->
   <section class="hero" id="hero" aria-label="Hero banner">
+    <div class="container hero-grid">
+      
+      <!-- Left: Product Visual -->
+      <div class="hero-visual" id="heroVisual" aria-hidden="true">
+        <div class="hero-visual-inner">
+          <picture>
+            <source srcset="images/banner-hero.webp" type="image/webp" />
+            <img src="images/banner-hero.jpg" alt="Uncle Joe Foods Premium Yam" width="500" height="500" decoding="async" />
+          </picture>
+        </div>
+      </div>
 
-    <div class="hero-bg-stack" id="heroVisual" aria-hidden="true">
-      <div class="hero-bg hero-bg--a is-active"
-           style="background-image: url('images/banner-hero.jpg'); background-image: image-set(url('images/banner-hero.webp') type('image/webp'), url('images/banner-hero.jpg') type('image/jpeg'));"></div>
-      <div class="hero-bg hero-bg--b"
-           style="background-image: url('images/banner-hero-2.jpg'); background-image: image-set(url('images/banner-hero-2.webp') type('image/webp'), url('images/banner-hero-2.jpg') type('image/jpeg'));"></div>
-    </div>
-    <div class="hero-scrim" aria-hidden="true"></div>
-
-    <div class="container">
+      <!-- Right: Content -->
       <div class="hero-content">
-        <span class="eyebrow">✦ 100% Natural · Authentic</span>
-        <h1 class="display-1">Yam,<br/><em>the way</em><br/>Ghana intended.</h1>
-        <p>
-          From the heart of West Africa to your table. Authentically prepared
-          yam fries, slices, and pounded yam, packed with flavour and goodness.
+        <span class="eyebrow">
+          <svg class="eyebrow-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M12 2L15 8L22 9L18 13L19 20L12 16.5L5 20L6 13L2 9L9 8L12 2Z"/>
+          </svg>
+          Premium Quality
+        </span>
+        <h1 class="display-1">Best Quality Yams<br/>From Ghana.</h1>
+        <p class="hero-tagline">
+          From the heart of West Africa to your table. Authentically prepared yam fries, slices, and pounded yam, packed with flavour and goodness.
         </p>
         <div class="hero-actions">
           <a href="products.html" class="btn btn-primary btn-magnetic">
-            Shop now
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-          </a>
-          <a href="contact.html" class="btn btn-ghost btn-magnetic">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-            Get in touch
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M9 2L6 6H1V10H3L5 20H19L21 10H23V6H18L15 2M9 8V16M12 8V16M15 8V16" fill="currentColor"/></svg>
+            Shop Now
           </a>
         </div>
       </div>
-    </div>
 
-    <div class="hero-dots" role="group" aria-label="Hero slides">
-      <button class="active" data-slide="0" aria-label="Slide 1"></button>
-      <button data-slide="1" aria-label="Slide 2"></button>
     </div>
-
   </section>
 
 
