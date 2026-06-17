@@ -6,6 +6,16 @@
   <title>Contact Us  |  Uncle Joe Foods</title>
   <meta name="description" content="Get in touch with Uncle Joe Foods to place an order, ask about our African yam products, or enquire about wholesale pricing." />
 
+  <link rel="icon" type="image/webp" href="images/logo-nav.webp" />
+  <link rel="alternate icon" type="image/jpeg" href="images/logo-nav.jpg" />
+  <link rel="apple-touch-icon" href="images/logo.jpg" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Contact Us | Uncle Joe Foods" />
+  <meta property="og:description" content="Send us a message and we'll get back to you within 24 hours on business days." />
+  <meta property="og:image" content="images/farm-photo-1.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="theme-color" content="#2e7d32" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
@@ -43,8 +53,11 @@
     <div class="container nav-inner">
 
       <a href="index.html" class="nav-logo" aria-label="Uncle Joe Foods Home">
-        <img src="images/logo.jpg" alt="Uncle Joe Foods Logo" />
-        <span class="nav-logo-text">Uncle Joe Foods<span>Premium African Yam</span></span>
+        <picture>
+          <source srcset="images/logo-nav.webp" type="image/webp" />
+          <img src="images/logo-nav.jpg" alt="Uncle Joe Foods Logo" width="80" height="96" decoding="async" />
+        </picture>
+        <span class="nav-logo-text">Uncle Joe Foods</span>
       </a>
 
       <nav aria-label="Main navigation">
@@ -87,7 +100,7 @@
         <!-- ─── Info Side ─── -->
         <div class="contact-info reveal">
           <h3>How Can We Help You?</h3>
-          <p>Whether you're placing an individual order, enquiring about wholesale pricing, or just want to learn more about our products  -  we're here for you.</p>
+          <p>Whether you're placing an individual order, enquiring about wholesale pricing, or just want to learn more about our products, we're here for you.</p>
 
           <div class="contact-item">
             <div class="contact-item__icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></div>
@@ -184,10 +197,10 @@
 
             <div class="form-group">
               <label for="message">Message <span style="color:var(--clr-accent);">*</span></label>
-              <textarea id="message" name="message" placeholder="Tell us what you need  -  product name, quantity, any special requirements…" required minlength="20"></textarea>
+              <textarea id="message" name="message" placeholder="Tell us what you need (product name, quantity, any special requirements)…" required minlength="20"></textarea>
             </div>
 
-            <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;">
+            <button type="submit" class="btn btn-primary btn-magnetic" style="width:100%; justify-content:center;">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg> Send Message
             </button>
 
@@ -215,13 +228,20 @@
 
   <!-- ════════════════════ FOOTER ════════════════════ -->
   <footer class="site-footer" aria-label="Site footer">
+
     <div class="container">
       <div class="footer-grid">
 
         <div class="footer-brand">
-          <img src="images/logo.jpg" alt="Uncle Joe Foods" />
-          <p>Premium African yam products  -  naturally prepared, authentically West African. Delivered fresh to your door.</p>
-          <div class="social-links" style="margin-top:16px;">
+          <a href="index.html" class="footer-logo" aria-label="Uncle Joe Foods Home">
+            <picture>
+              <source srcset="images/logo-nav.webp" type="image/webp" />
+              <img src="images/logo-nav.jpg" alt="" width="80" height="96" loading="lazy" decoding="async" />
+            </picture>
+            <span>Uncle Joe Foods</span>
+          </a>
+          <p>Premium African yam products, naturally prepared and authentically West African. Delivered fresh to your door.</p>
+          <div class="social-links">
             <a href="#" class="social-link" aria-label="Facebook"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
             <a href="#" class="social-link" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg></a>
             <a href="#" class="social-link" aria-label="Twitter"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.258 5.63 5.906-5.63Zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
@@ -229,10 +249,11 @@
         </div>
 
         <div class="footer-col">
-          <h4>Quick Links</h4>
+          <h4>Explore</h4>
           <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="products.html">Products</a></li>
+            <li><a href="partner.html">Partner</a></li>
             <li><a href="contact.html">Contact Us</a></li>
           </ul>
         </div>
@@ -251,6 +272,7 @@
           <h4>Get in Touch</h4>
           <ul>
             <li><a href="mailto:jjfetrading@gmail.com">jjfetrading@gmail.com</a></li>
+            <li><a href="tel:+19454076404">+1 945 407 6404</a></li>
             <li><a href="contact.html">Send an Enquiry</a></li>
           </ul>
         </div>
@@ -258,12 +280,12 @@
       </div>
 
       <div class="footer-bottom">
-        <span>© <span id="year"></span> Uncle Joe Foods / JJFE Trading LLC. All rights reserved.</span>
-        <span>Made with ♥ for West African food lovers</span>
+        <span>© <span id="year"></span> Uncle Joe Foods · JJFE Trading LLC. All rights reserved.</span>
+        <span>Made with care for West African food lovers.</span>
       </div>
     </div>
   </footer>
 
-  <script src="js/main.js"></script>
+  <script src="js/main.js" defer></script>
 </body>
 </html>

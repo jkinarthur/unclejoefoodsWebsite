@@ -4,7 +4,23 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Uncle Joe Foods  |  Premium African Yam Products</title>
-  <meta name="description" content="Uncle Joe Foods delivers premium African yam products  -  African Yam Fries, Yam Slices, Fresh Ghana Yam and Pounded Yam  -  straight to your door." />
+  <meta name="description" content="Uncle Joe Foods delivers premium African yam products (African Yam Fries, Yam Slices, Fresh Ghana Yam and Pounded Yam) straight to your door." />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/webp" href="images/logo-nav.webp" />
+  <link rel="alternate icon" type="image/jpeg" href="images/logo-nav.jpg" />
+  <link rel="apple-touch-icon" href="images/logo.jpg" />
+
+  <!-- Preload hero image (above-the-fold) -->
+  <link rel="preload" as="image" href="images/banner-hero.webp" type="image/webp" fetchpriority="high" />
+
+  <!-- Open Graph / social sharing -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Uncle Joe Foods | Premium African Yam Products" />
+  <meta property="og:description" content="Premium African yam products delivered fresh. Yam Fries, Yam Slices, Fresh Ghana Yam and Pounded Yam." />
+  <meta property="og:image" content="images/banner-hero.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="theme-color" content="#2e7d32" />
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -23,8 +39,11 @@
     <div class="container nav-inner">
 
       <a href="index.html" class="nav-logo" aria-label="Uncle Joe Foods Home">
-        <img src="images/logo.jpg" alt="Uncle Joe Foods Logo" />
-        <span class="nav-logo-text">Uncle Joe Foods<span>Premium African Yam</span></span>
+        <picture>
+          <source srcset="images/logo-nav.webp" type="image/webp" />
+          <img src="images/logo-nav.jpg" alt="Uncle Joe Foods Logo" width="80" height="96" decoding="async" />
+        </picture>
+        <span class="nav-logo-text">Uncle Joe Foods</span>
       </a>
 
       <nav aria-label="Main navigation">
@@ -45,40 +64,53 @@
   </header>
 
 
-  <!-- ════════════════════ HERO SLIDER ════════════════════ -->
+  <!-- ════════════════════ HERO (full-bleed editorial) ════════════════════ -->
   <section class="hero" id="hero" aria-label="Hero banner">
 
-    <div class="hero-bg" id="heroBg"
-         style="background-image: url('images/banner-hero.jpg');"
-         role="img" aria-label="Fresh African yam products"></div>
+    <div class="hero-bg-stack" id="heroVisual" aria-hidden="true">
+      <div class="hero-bg hero-bg--a is-active"
+           style="background-image: url('images/banner-hero.jpg'); background-image: image-set(url('images/banner-hero.webp') type('image/webp'), url('images/banner-hero.jpg') type('image/jpeg'));"></div>
+      <div class="hero-bg hero-bg--b"
+           style="background-image: url('images/banner-hero-2.jpg'); background-image: image-set(url('images/banner-hero-2.webp') type('image/webp'), url('images/banner-hero-2.jpg') type('image/jpeg'));"></div>
+    </div>
+    <div class="hero-scrim" aria-hidden="true"></div>
 
     <div class="container">
-      <div class="hero-content reveal">
-        <span class="eyebrow">✦ 100% Natural &amp; Authentic</span>
-        <h1>Premium African Yam Products Delivered Fresh</h1>
+      <div class="hero-content">
+        <span class="eyebrow">✦ 100% Natural · Authentic</span>
+        <h1 class="display-1">Yam,<br/><em>the way</em><br/>Ghana intended.</h1>
         <p>
-          From the heart of West Africa to your table  -  Uncle Joe Foods brings you
-          authentically prepared yam fries, slices, and more, packed with flavour and
-          goodness.
+          From the heart of West Africa to your table. Authentically prepared
+          yam fries, slices, and pounded yam, packed with flavour and goodness.
         </p>
         <div class="hero-actions">
-          <a href="products.html" class="btn btn-primary">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg> Shop Now
+          <a href="products.html" class="btn btn-primary btn-magnetic">
+            Shop now
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
           </a>
-          <a href="contact.html" class="btn btn-outline-white">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg> Get in Touch
+          <a href="contact.html" class="btn btn-ghost btn-magnetic">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            Get in touch
           </a>
         </div>
       </div>
     </div>
 
-    <!-- Slide indicators -->
     <div class="hero-dots" role="group" aria-label="Hero slides">
       <button class="active" data-slide="0" aria-label="Slide 1"></button>
       <button data-slide="1" aria-label="Slide 2"></button>
     </div>
 
   </section>
+
+
+  <!-- ════════════════════ MARQUEE ════════════════════ -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee__track">
+      <span>Premium Ghana Yam <span class="dot">·</span> Frozen-Fresh <span class="dot">·</span> Authentic <span class="dot">·</span> Family-Owned <span class="dot">·</span> Premium Ghana Yam <span class="dot">·</span> Frozen-Fresh <span class="dot">·</span> Authentic <span class="dot">·</span> Family-Owned <span class="dot">·</span>&nbsp;</span>
+      <span>Premium Ghana Yam <span class="dot">·</span> Frozen-Fresh <span class="dot">·</span> Authentic <span class="dot">·</span> Family-Owned <span class="dot">·</span> Premium Ghana Yam <span class="dot">·</span> Frozen-Fresh <span class="dot">·</span> Authentic <span class="dot">·</span> Family-Owned <span class="dot">·</span>&nbsp;</span>
+    </div>
+  </div>
 
 
   <!-- ════════════════════ FEATURES ════════════════════ -->
@@ -93,29 +125,49 @@
 
       <div class="features-grid">
 
-        <div class="feature-card reveal">
-          <div class="feature-card__icon">🌿</div>
-          <h3>100% Natural</h3>
-          <p>No artificial preservatives. Just pure, wholesome African yam as nature intended.</p>
-        </div>
+        <article class="feature-card feature-card--green reveal">
+          <div class="feature-card__top">
+            <h3>100% Natural</h3>
+            <span class="feature-card__sub">Pure &amp; wholesome</span>
+            <div class="feature-card__icon"><span aria-hidden="true">🌿</span></div>
+          </div>
+          <div class="feature-card__body">
+            <p>No artificial preservatives. Just pure, wholesome African yam as nature intended.</p>
+          </div>
+        </article>
 
-        <div class="feature-card reveal">
-          <div class="feature-card__icon">🚚</div>
-          <h3>Fast Delivery</h3>
-          <p>Frozen and packed to preserve freshness, delivered quickly to your door.</p>
-        </div>
+        <article class="feature-card feature-card--terra reveal">
+          <div class="feature-card__top">
+            <h3>Fast Delivery</h3>
+            <span class="feature-card__sub">Frozen-fresh, on time</span>
+            <div class="feature-card__icon"><span aria-hidden="true">🚚</span></div>
+          </div>
+          <div class="feature-card__body">
+            <p>Frozen and packed to preserve freshness, delivered quickly to your door.</p>
+          </div>
+        </article>
 
-        <div class="feature-card reveal">
-          <div class="feature-card__icon">🌍</div>
-          <h3>Authentic West African</h3>
-          <p>Sourced directly from Ghana  -  real yams with real flavour, every time.</p>
-        </div>
+        <article class="feature-card feature-card--gold reveal">
+          <div class="feature-card__top">
+            <h3>Authentic West African</h3>
+            <span class="feature-card__sub">Direct from Ghana</span>
+            <div class="feature-card__icon"><span aria-hidden="true">🌍</span></div>
+          </div>
+          <div class="feature-card__body">
+            <p>Sourced directly from Ghana. Real yams with real flavour, every time.</p>
+          </div>
+        </article>
 
-        <div class="feature-card reveal">
-          <div class="feature-card__icon">🏆</div>
-          <h3>Premium Quality</h3>
-          <p>Every batch is carefully inspected and prepared to the highest food-safety standards.</p>
-        </div>
+        <article class="feature-card feature-card--forest reveal">
+          <div class="feature-card__top">
+            <h3>Premium Quality</h3>
+            <span class="feature-card__sub">Inspected, every batch</span>
+            <div class="feature-card__icon"><span aria-hidden="true">🏆</span></div>
+          </div>
+          <div class="feature-card__body">
+            <p>Every batch is carefully inspected and prepared to the highest food-safety standards.</p>
+          </div>
+        </article>
 
       </div>
     </div>
@@ -129,16 +181,10 @@
       <div class="section-header">
         <span class="eyebrow">Why Our Products</span>
         <h2 id="benefits-heading">Built for Quality, Convenience &amp; Value</h2>
-        <p>Uncle Joe Foods products are designed to make cooking authentic African yam easy  -  without sacrificing taste or quality.</p>
+        <p>Uncle Joe Foods products are designed to make cooking authentic African yam easy, without sacrificing taste or quality.</p>
       </div>
 
       <div class="benefits-grid">
-
-        <div class="benefit-card reveal">
-          <div class="benefit-card__icon">🍟</div>
-          <h3>Product Offerings</h3>
-          <p>Yam Fries &amp; Yam Slices  -  two of West Africa's most loved yam preparations, perfectly processed and ready for your kitchen.</p>
-        </div>
 
         <div class="benefit-card reveal">
           <div class="benefit-card__icon">📦</div>
@@ -149,13 +195,13 @@
         <div class="benefit-card reveal">
           <div class="benefit-card__icon">✅</div>
           <h3>Consistency</h3>
-          <p>More dependable quality with every order  -  portion control means no waste and predictable yields for your kitchen or business.</p>
+          <p>More dependable quality with every order. Portion control means no waste and predictable yields for your kitchen or business.</p>
         </div>
 
         <div class="benefit-card reveal">
           <div class="benefit-card__icon">⏱️</div>
           <h3>Less Prep Time</h3>
-          <p>Pre-peeled, pre-cut, and quickly frozen at source. Skip the hours of prep  -  our products go straight from freezer to cooker.</p>
+          <p>Pre-peeled, pre-cut, and quickly frozen at source. Skip the hours of prep. Our products go straight from freezer to cooker.</p>
         </div>
 
         <div class="benefit-card reveal">
@@ -179,79 +225,67 @@
         <p>Explore our range of premium African yam products, available in convenient sizes.</p>
       </div>
 
-      <div class="products-grid">
+      <div class="bento-grid">
 
-        <!-- Product 1 -->
-        <article class="product-card reveal">
-          <div class="product-card__img">
-            <img src="images/yam-fries-styled.jpg" alt="African Yam Fries 1kg" loading="lazy" />
-            <span class="product-card__badge">Bestseller</span>
+        <!-- Bento 1 (large) -->
+        <a href="contact.html" class="bento-card bento-card--lg reveal">
+          <picture>
+            <source srcset="images/yam-fries-styled.webp" type="image/webp" />
+            <img src="images/yam-fries-styled.jpg" alt="African Yam Fries" width="1600" height="1077" loading="lazy" decoding="async" />
+          </picture>
+          <span class="bento-card__badge">Bestseller</span>
+          <div class="bento-card__body">
+            <p class="bento-card__category">Yam Fries</p>
+            <h3>African Yam Fries.<br/>Crispy, golden, ready.</h3>
+            <span class="bento-card__cta">Enquire <span aria-hidden="true">→</span></span>
           </div>
-          <div class="product-card__body">
-            <p class="product-card__category">Yam Fries</p>
-            <h3 class="product-card__name">African Yam Fries</h3>
-            <p class="product-card__desc">Crispy, golden yam fries made from premium Ghana yam  -  the perfect side dish or snack.</p>
-            <div class="product-card__footer">
-              <span class="product-card__weight">1kg &amp; 2.5kg</span>
-              <a href="contact.html" class="product-card__inquiry">Enquire →</a>
-            </div>
-          </div>
-        </article>
+        </a>
 
-        <!-- Product 2 -->
-        <article class="product-card reveal">
-          <div class="product-card__img">
-            <img src="images/yam-slices-styled.jpg" alt="African Yam Slices 1kg" loading="lazy" />
-            <span class="product-card__badge">Popular</span>
+        <!-- Bento 2 (wide) -->
+        <a href="contact.html" class="bento-card reveal">
+          <picture>
+            <source srcset="images/yam-slices-styled.webp" type="image/webp" />
+            <img src="images/yam-slices-styled.jpg" alt="African Yam Slices" width="1600" height="1046" loading="lazy" decoding="async" />
+          </picture>
+          <span class="bento-card__badge">Popular</span>
+          <div class="bento-card__body">
+            <p class="bento-card__category">Yam Slices</p>
+            <h3>African Yam Slices</h3>
+            <span class="bento-card__cta">Enquire <span aria-hidden="true">→</span></span>
           </div>
-          <div class="product-card__body">
-            <p class="product-card__category">Yam Slices</p>
-            <h3 class="product-card__name">African Yam Slices</h3>
-            <p class="product-card__desc">Premium sliced African yam, ready to cook in your favourite style  -  fried, boiled or roasted.</p>
-            <div class="product-card__footer">
-              <span class="product-card__weight">1kg &amp; 2.5kg</span>
-              <a href="contact.html" class="product-card__inquiry">Enquire →</a>
-            </div>
-          </div>
-        </article>
+        </a>
 
-        <!-- Product 3 -->
-        <article class="product-card reveal">
-          <div class="product-card__img">
-            <img src="images/fresh-ghana-yam.jpg" alt="Fresh Ghana Yam" loading="lazy" />
+        <!-- Bento 3 -->
+        <a href="contact.html" class="bento-card reveal">
+          <picture>
+            <source srcset="images/fresh-ghana-yam.webp" type="image/webp" />
+            <img src="images/fresh-ghana-yam.jpg" alt="Fresh Ghana Yam" width="1200" height="675" loading="lazy" decoding="async" />
+          </picture>
+          <div class="bento-card__body">
+            <p class="bento-card__category">Fresh Yam</p>
+            <h3>Fresh Ghana Yam</h3>
+            <span class="bento-card__cta">Enquire <span aria-hidden="true">→</span></span>
           </div>
-          <div class="product-card__body">
-            <p class="product-card__category">Fresh Yam</p>
-            <h3 class="product-card__name">Fresh Ghana Yam</h3>
-            <p class="product-card__desc">Whole fresh Ghana yam imported directly  -  full of nutrients and authentic West African flavour.</p>
-            <div class="product-card__footer">
-              <span class="product-card__weight">Varies</span>
-              <a href="contact.html" class="product-card__inquiry">Enquire →</a>
-            </div>
-          </div>
-        </article>
+        </a>
 
-        <!-- Product 4 -->
-        <article class="product-card reveal">
-          <div class="product-card__img">
-            <img src="images/pounded-yam.jpg" alt="Pounded Yam" loading="lazy" />
+        <!-- Bento 4 -->
+        <a href="contact.html" class="bento-card reveal">
+          <picture>
+            <source srcset="images/pounded-yam.webp" type="image/webp" />
+            <img src="images/pounded-yam.jpg" alt="Pounded Yam" width="800" height="800" loading="lazy" decoding="async" />
+          </picture>
+          <div class="bento-card__body">
+            <p class="bento-card__category">Pounded Yam</p>
+            <h3>Pounded Yam</h3>
+            <span class="bento-card__cta">Enquire <span aria-hidden="true">→</span></span>
           </div>
-          <div class="product-card__body">
-            <p class="product-card__category">Pounded Yam</p>
-            <h3 class="product-card__name">Pounded Yam</h3>
-            <p class="product-card__desc">Smooth, fluffy pounded yam  -  a West African staple, made easy. Just heat and serve with your favourite soup.</p>
-            <div class="product-card__footer">
-              <span class="product-card__weight">Various sizes</span>
-              <a href="contact.html" class="product-card__inquiry">Enquire →</a>
-            </div>
-          </div>
-        </article>
+        </a>
 
       </div>
 
-      <div style="text-align:center; margin-top: 40px;">
-        <a href="products.html" class="btn btn-outline">
-          View All Products <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      <div style="text-align:center; margin-top: 48px;">
+        <a href="products.html" class="btn btn-outline btn-magnetic">
+          View all products <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
         </a>
       </div>
 
@@ -259,31 +293,47 @@
   </section>
 
 
-  <!-- ════════════════════ ABOUT STRIP ════════════════════ -->
-  <div class="about-strip" aria-label="About Uncle Joe Foods">
+  <!-- ════════════════════ STICKY STORY ════════════════════ -->
+  <section class="section sticky-story" aria-labelledby="story-heading">
+    <div class="container">
+      <div class="sticky-story__grid">
 
-    <div class="about-strip__img">
-      <img src="images/farm-photo-1.jpg" alt="Yam farm in Ghana" loading="lazy" />
+        <div class="sticky-story__visual">
+          <picture>
+            <source srcset="images/farm-photo-1.webp" type="image/webp" />
+            <img src="images/farm-photo-1.jpg" alt="Yam farm in Ghana" width="1400" height="1050" loading="lazy" decoding="async" />
+          </picture>
+        </div>
+
+        <div class="sticky-story__text">
+
+          <article class="reveal">
+            <span class="eyebrow">Our roots</span>
+            <h2 id="story-heading">Sourced from the heart of Ghana.</h2>
+            <p>We work directly with trusted farmers in Ghana to source the finest yams. Every tuber is hand-picked, inspected, and prepared with care.</p>
+          </article>
+
+          <article class="reveal">
+            <span class="eyebrow">Our craft</span>
+            <h2>Pre-peeled. Pre-cut. Frozen at peak freshness.</h2>
+            <p>Skip the hours of prep. Our products go straight from freezer to cooker, with the same authentic flavour you'd expect from a fresh Ghana yam.</p>
+          </article>
+
+          <article class="reveal">
+            <span class="eyebrow">Our promise</span>
+            <h2>Authentic West African flavour, delivered.</h2>
+            <p>Whether you're missing a taste of home or discovering African cuisine for the first time, Uncle Joe Foods is here for you.</p>
+            <a href="contact.html" class="btn btn-primary btn-magnetic" style="margin-top:1.4rem;">
+              Order now
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+          </article>
+
+        </div>
+
+      </div>
     </div>
-
-    <div class="about-strip__content reveal">
-      <p style="color:#a5d6a7; font-size:.85rem; font-weight:700; text-transform:uppercase; letter-spacing:.1em;">Our Story</p>
-      <h2>Bringing West Africa's Best to Your Kitchen</h2>
-      <p>
-        Uncle Joe Foods was founded with a simple mission  -  to make authentic West African
-        yam products accessible to everyone. We work directly with trusted farmers in Ghana
-        to source the finest yams, then prepare and pack them with care.
-      </p>
-      <p>
-        Whether you are missing a taste of home or discovering African cuisine for the first
-        time, Uncle Joe Foods is here for you.
-      </p>
-      <a href="contact.html" class="btn btn-outline-white" style="margin-top:.5rem;">
-        Contact Us <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-      </a>
-    </div>
-
-  </div>
+  </section>
 
 
   <!-- ════════════════════ CUSTOMER REVIEWS ════════════════════ -->
@@ -303,7 +353,7 @@
             <span class="review-card__product" style="background:rgba(255,255,255,.15); color:#a5d6a7;">Yam Fries 1kg</span>
             <span class="review-card__stars">★★★★★</span>
           </div>
-          <p class="review-card__text">"The yam fries taste just like home  -  crispy on the outside, soft inside. My whole family loves them. Will be ordering every month!"</p>
+          <p class="review-card__text">"The yam fries taste just like home, crispy on the outside, soft inside. My whole family loves them. Will be ordering every month!"</p>
           <div class="review-card__author">
             <div class="review-card__avatar" style="background:rgba(255,255,255,.15); color:#fff;">A</div>
             <div>
@@ -333,7 +383,7 @@
             <span class="review-card__product" style="background:rgba(255,255,255,.15); color:#a5d6a7;">Pounded Yam</span>
             <span class="review-card__stars">★★★★★</span>
           </div>
-          <p class="review-card__text">"The pounded yam is smooth and authentic. It saves so much time  -  no pounding required! Uncle Joe Foods is now my go-to for all African food staples."</p>
+          <p class="review-card__text">"The pounded yam is smooth and authentic. It saves so much time. No pounding required! Uncle Joe Foods is now my go-to for all African food staples."</p>
           <div class="review-card__author">
             <div class="review-card__avatar" style="background:rgba(255,255,255,.15); color:#fff;">F</div>
             <div>
@@ -367,14 +417,35 @@
 
   <!-- ════════════════════ FOOTER ════════════════════ -->
   <footer class="site-footer" aria-label="Site footer">
+
+    <!-- CTA strip -->
+    <div class="footer-cta">
+      <div class="container footer-cta__inner">
+        <div>
+          <p class="footer-cta__eyebrow">Get in touch</p>
+          <h2 class="footer-cta__title">Bring authentic Ghanaian yam<br/><em>to your table.</em></h2>
+        </div>
+        <a href="contact.html" class="btn btn-primary btn-magnetic">
+          Start a conversation
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+
     <div class="container">
       <div class="footer-grid">
 
         <!-- Brand -->
         <div class="footer-brand">
-          <img src="images/logo.jpg" alt="Uncle Joe Foods" />
-          <p>Premium African yam products  -  naturally prepared, authentically West African. Delivered fresh to your door.</p>
-          <div class="social-links" style="margin-top:16px;">
+          <a href="index.html" class="footer-logo" aria-label="Uncle Joe Foods Home">
+            <picture>
+              <source srcset="images/logo-nav.webp" type="image/webp" />
+              <img src="images/logo-nav.jpg" alt="" width="80" height="96" loading="lazy" decoding="async" />
+            </picture>
+            <span>Uncle Joe Foods</span>
+          </a>
+          <p>Premium African yam products, naturally prepared and authentically West African. Delivered fresh to your door.</p>
+          <div class="social-links">
             <a href="#" class="social-link" aria-label="Facebook"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
             <a href="#" class="social-link" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg></a>
             <a href="#" class="social-link" aria-label="Twitter"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.258 5.63 5.906-5.63Zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
@@ -383,10 +454,11 @@
 
         <!-- Quick Links -->
         <div class="footer-col">
-          <h4>Quick Links</h4>
+          <h4>Explore</h4>
           <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="products.html">Products</a></li>
+            <li><a href="partner.html">Partner</a></li>
             <li><a href="contact.html">Contact Us</a></li>
           </ul>
         </div>
@@ -415,12 +487,12 @@
       </div>
 
       <div class="footer-bottom">
-        <span>© <span id="year"></span> Uncle Joe Foods / JJFE Trading LLC. All rights reserved.</span>
-        <span>Made with ♥ for West African food lovers</span>
+        <span>© <span id="year"></span> Uncle Joe Foods · JJFE Trading LLC. All rights reserved.</span>
+        <span>Made with care for West African food lovers.</span>
       </div>
     </div>
   </footer>
 
-  <script src="js/main.js"></script>
+  <script src="js/main.js" defer></script>
 </body>
 </html>

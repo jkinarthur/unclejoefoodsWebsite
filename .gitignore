@@ -1,0 +1,5 @@
+# macOS
+.DS_Store
+
+# Local image originals (pre-optimization backup, not for production)
+images/_originals/
